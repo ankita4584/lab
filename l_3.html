@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin: 20px;
+        }
+       
+        #colorSection {
+            flex-grow: 1;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            text-align: center;
+            border: 2px solid #000;
+
+        }
+        footer,header{
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <h1>Change Specific  Background</h1>
+</header>
+<main >
+    <div class="color-section" id="colorSection">
+        This section should change colour after clicking the buttons below.
+    </div>
+    <div >
+        <button onclick="changeBackground('lightblue')">blue</button>
+        <button onclick="changeBackground( 'lightgreen')">green</button>
+        <button onclick="changeBackground( 'red')">red</button>
+    </div>
+</main>
+    <footer>
+        <p>2024 Responsive Layout Example</p>
+    </footer>
+
+    <script>
+        function changeBackground(color){
+            const section = document.getElementById('colorSection');
+            section.style.backgroundColor = color;
+                }
+    </script>
+</body>
+</html>

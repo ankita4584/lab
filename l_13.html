@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .list-container {
+            display: flex;
+            gap: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 5px 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery Demonstration</h1>
+    <div class="list-container">
+        <div>
+            <h3>List 1</h3>
+            <ul id="list1">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+            <button id="copyToList2">Copy to List 2</button>
+        </div>
+        <div>
+            <h3>List 2</h3>
+            <ul id="list2">
+                <!-- Empty initially -->
+            </ul>
+        </div>
+    </div>
+    <button id="createElement">Create New Element</button>
+    <div id="newElementContainer"></div>
+
+    <script>
+        $(document).ready(function() {
+          $('#copyToList2').on('click',function(){
+            $('#list1 li').each(function(){
+                $('#list2').append($(this).clone());
+            });
+          });
+            // Create a new element dynamically
+            $('#createElement').on('click', function() {
+                let newElement = $('<h1>', {
+                    text: 'item 4',
+                    css: {
+                        padding: '10px',
+                        margin: '10px 0',
+                        border: '1px solid #ddd',
+                        backgroundColor: '#e9ecef'
+                    }
+                });
+                $('#list1').append(newElement);
+            });
+        });
+    </script>
+</body>
+</html>
